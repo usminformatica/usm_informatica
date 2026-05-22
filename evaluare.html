@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Student info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Link-ul de ieșire */
+        .logout-container {
+            text-align: right;
+            margin-bottom: 10px;
+            padding-right: 100px;
+        }
+        .logout-link {
+            color: #0066cc;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        /* Meniul de navigare (Tab-uri) */
+        .nav-tabs {
+            border-bottom: 1px solid #b5b5b5;
+            padding-left: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 5px;
+        }
+        .tab {
+            padding: 4px 10px;
+            border: 1px solid #cdcdcd;
+            border-bottom: none;
+            background-color: #ffffff;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 11px;
+        }
+        .tab.active {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #b5b5b5;
+            border-bottom: 1px solid #ffffff;
+            margin-bottom: -1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Structura specifică listei de evaluare USM */
+        .evaluation-container {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .subject-block {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+
+        /* Antetul disciplinei (Nume + Profesor) */
+        .subject-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 6px 5px;
+            border-bottom: 1px solid #b5b5b5;
+        }
+
+        /* Rândurile cu componentele notei */
+        .grade-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 25px 5px 5px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 11px;
+        }
+
+        /* Evidențierea cu verde pentru medii și examene */
+        .grade-row.highlight-green {
+            background-color: #d4edda;
+            font-weight: bold;
+            color: #155724;
+            border-bottom: 1px solid #c3e6cb;
+        }
+
+        .grade-label {
+            text-align: left;
+            font-style: italic;
+        }
+
+        .grade-label.bold {
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        .grade-value {
+            font-weight: bold;
+            text-align: right;
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="logout-container">
+        <span class="logout-link">Ieșire</span>
+    </div>
+
+    <div class="nav-tabs">
+        <a href="home.html" class="tab">Home</a>
+        <a href="frecventa.html" class="tab">Evidenta frecventei(semestr. curent)</a>
+        <a href="evaluare.html" class="tab active">Evaluare</a>
+    </div>
+
+    <div class="evaluation-container">
+
+        <div class="subject-block">
+            <div class="subject-header">
+                <div>02 Licenta ZI Etica profesionala si scrierea academica</div>
+                <div>Marin Maria Petru</div>
+            </div>
+            <div class="grade-row"><div class="grade-label">testare1</div><div class="grade-value">7</div></div>
+            <div class="grade-row"><div class="grade-label">testare2</div><div class="grade-value">6</div></div>
+            <div class="grade-row"><div class="grade-label">Media evaluarii curente</div><div class="grade-value">7</div></div>
+            <div class="grade-row"><div class="grade-label">Lucrul individual</div><div class="grade-value">8</div></div>
+            <div class="grade-row highlight-green"><div class="grade-label bold">Media Semestriala</div><div class="grade-value">7</div></div>
+        </div>
+
+        <div class="subject-block">
+            <div class="subject-header">
+                <div>02 Licenta ZI JavaScript</div>
+                <div>Donu Alexandru</div>
+            </div>
+            <div class="grade-row"><div class="grade-label">testare1</div><div class="grade-value">8</div></div>
+            <div class="grade-row"><div class="grade-label">testare2</div><div class="grade-value">7</div></div>
+            <div class="grade-row"><div class="grade-label">Media evaluarii curente</div><div class="grade-value">7</div></div>
+            <div class="grade-row"><div class="grade-label">Lucrul individual</div><div class="grade-value">6</div></div>
+            <div class="grade-row highlight-green"><div class="grade-label bold">Media Semestriala</div><div class="grade-value">7</div></div>
+        </div>
+
+        <div class="subject-block">
+            <div class="subject-header">
+                <div>02 Licenta ZI Matematica discreta</div>
+                <div>Cuciuc Natalia</div>
+            </div>
+            <div class="grade-row"><div class="grade-label">testare1</div><div class="grade-value">8</div></div>
+            <div class="grade-row"><div class="grade-label">testare2</div><div class="grade-value">6</div></div>
+            <div class="grade-row"><div class="grade-label">Media evaluarii curente</div><div class="grade-value">7</div></div>
+            <div class="grade-row"><div class="grade-label">Lucrul individual</div><div class="grade-value">7</div></div>
+            <div class="grade-row highlight-green"><div class="grade-label bold">Media Semestriala</div><div class="grade-value">7</div></div>
+        </div>
+
+        <div class="subject-block">
+            <div class="subject-header">
+                <div>02 Licenta ZI Programarea orientata pe obiect</div>
+                <div>Arnaut Vsevolod Simion</div>
+            </div>
+            <div class="grade-row"><div class="grade-label">testare1</div><div class="grade-value">7</div></div>
+            <div class="grade-row"><div class="grade-label">testare2</div><div class="grade-value">8</div></div>
+            <div class="grade-row"><div class="grade-label">Media evaluarii curente</div><div class="grade-value">7</div></div>
+            <div class="grade-row"><div class="grade-label">Lucrul individual</div><div class="grade-value">6</div></div>
+            <div class="grade-row highlight-green"><div class="grade-label bold">Media Semestriala</div><div class="grade-value">7</div></div>
+        </div>
+
+        <div class="subject-block">
+            <div class="subject-header">
+                <div>02 Licenta ZI PYTHON pentru aplicatii</div>
+                <div>Plesca Natalia Mihail</div>
+            </div>
+            <div class="grade-row"><div class="grade-label">testare1</div><div class="grade-value">6</div></div>
+            <div class="grade-row"><div class="grade-label">testare2</div><div class="grade-value">7</div></div>
+            <div class="grade-row"><div class="grade-label">Media evaluarii curente</div><div class="grade-value">8</div></div>
+            <div class="grade-row"><div class="grade-label">Lucrul individual</div><div class="grade-value">7</div></div>
+            <div class="grade-row highlight-green"><div class="grade-label bold">Media Semestriala</div><div class="grade-value">7</div></div>
+        </div>
+
+        <div class="subject-block">
+            <div class="subject-header">
+                <div>02 Licenta ZI Retele de calculatoare</div>
+                <div>Capcelea Maria Andrei</div>
+            </div>
+            <div class="grade-row"><div class="grade-label">testare1</div><div class="grade-value">7</div></div>
+            <div class="grade-row"><div class="grade-label">testare2</div><div class="grade-value">8</div></div>
+            <div class="grade-row"><div class="grade-label">Media evaluarii curente</div><div class="grade-value">6</div></div>
+            <div class="grade-row"><div class="grade-label">Lucrul individual</div><div class="grade-value">7</div></div>
+            <div class="grade-row highlight-green"><div class="grade-label bold">Media Semestriala</div><div class="grade-value">7</div></div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

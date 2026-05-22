@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Student info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Link-ul de ieșire */
+        .logout-container {
+            text-align: right;
+            margin-bottom: 10px;
+            padding-right: 100px;
+        }
+        .logout-link {
+            color: #0066cc;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        /* Meniul de navigare (Tab-uri) */
+        .nav-tabs {
+            border-bottom: 1px solid #b5b5b5;
+            padding-left: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 5px;
+        }
+        .tab {
+            padding: 4px 10px;
+            border: 1px solid #cdcdcd;
+            border-bottom: none;
+            background-color: #ffffff;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 11px;
+        }
+        .tab.active {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #b5b5b5;
+            border-bottom: 1px solid #ffffff;
+            margin-bottom: -1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Titlu sectiuni */
+        .section-link {
+            color: #0066cc;
+            text-decoration: underline;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .table-caption {
+            font-size: 11px;
+            color: #333333;
+            margin-top: 15px;
+            margin-bottom: 3px;
+        }
+
+        /* Stilul general al tabelelor tipice USM */
+        .usm-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .usm-table th, .usm-table td {
+            border: 1px solid #a0a0a0;
+            padding: 5px 8px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        
+        /* Tabel info student */
+        .info-table th {
+            background-color: #dcdcdc;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Tabel ordine înmatriculare */
+        .order-table th {
+            background-color: #406080;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        /* Tabelul principal de note (semestrial) */
+        .marks-table th {
+            background-color: #205080;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: left;
+        }
+        .marks-table th.center-header, .marks-table td.center-cell {
+            text-align: center;
+        }
+        .header-row-licenta {
+            background-color: #4070a0;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 4px 8px;
+        }
+        .header-row-licenta td {
+            border: 1px solid #a0a0a0;
+        }
+        
+        /* Rândurile de total (Media, Credite) */
+        .footer-summary-row {
+            background-color: #c0c0c0;
+            font-weight: bold;
+        }
+        .footer-summary-row td {
+            border: 1px solid #a0a0a0;
+        }
+
+        .text-danger {
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="logout-container">
+        <span class="logout-link">Ieșire</span>
+    </div>
+
+    <div class="nav-tabs">
+        <a href="home.html" class="tab active">Home</a>
+        <a href="frecventa.html" class="tab">Evidenta frecventei(semestr. curent)</a>
+        <a href="evaluare.html" class="tab">Evaluare</a>
+    </div>
+
+    <div class="logout-container" style="text-align:left; padding-left:10px; margin-bottom:15px;">
+        <span class="section-link">CONTRACT ANUAL DE STUDII Descarcă şi Completează</span>
+    </div>
+
+    <table class="usm-table info-table" style="max-width: 600px;">
+        <thead>
+            <tr>
+                <th>Numele</th>
+                <th>Facultatea</th>
+                <th>spec</th>
+                <th>Frecventa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Scutari Egor</td>
+                <td>Matematica si Informatica</td>
+                <td>Informatica</td>
+                <td>Licenta ZI</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="table-caption">Ordine</div>
+    <table class="usm-table order-table" style="max-width: 500px;">
+        <thead>
+            <tr>
+                <th style="width: 15%;">Nr. ordin</th>
+                <th style="width: 20%;">Data</th>
+                <th style="width: 50%;">Continut</th>
+                <th style="width: 15%;">Remarka</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>276-st</td>
+                <td>26-08-2025</td>
+                <td>Inmatriculat in anul I Admitere</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <table class="usm-table marks-table">
+        <thead>
+            <tr>
+                <th style="width: 10%;">Sem.-ru</th>
+                <th style="width: 45%;">Denumirea disciplinei</th>
+                <th style="width: 20%;">Forma evaluarii</th>
+                <th style="width: 10%;" class="center-header">Nota</th>
+                <th style="width: 15%;" class="center-header">ECTS Credite An</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="header-row-licenta">
+                <td colspan="5">Licenta ZI</td>
+            </tr>
+            <tr>
+                <td>2 01</td>
+                <td>Etica profesionala si scrierea academica</td>
+                <td>Examen</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2 02</td>
+                <td>JavaScript</td>
+                <td>Examen</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2 03</td>
+                <td>Matematica discreta</td>
+                <td>Examen</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2 04</td>
+                <td>Programarea orientata pe obiect</td>
+                <td>Examen</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2 05</td>
+                <td>PYTHON pentru aplicatii</td>
+                <td>Examen</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2 06</td>
+                <td>Retele de calculatoare</td>
+                <td>Examen</td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            <tr class="footer-summary-row">
+                <td colspan="3">Media</td>
+                <td></td>
+                <td class="center-cell">0</td>
+            </tr>
+            <tr class="footer-summary-row">
+                <td colspan="3">Media An</td>
+                <td></td>
+                <td class="center-cell">0</td>
+            </tr>
+            <tr class="footer-summary-row">
+                <td colspan="4">Total Credite</td>
+                <td class="center-cell">0</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="font-size: 11px; color: #555555; margin-top:-15px; padding-left:5px;">...</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Student info — Mozilla Firefox</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Containerul principal */
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Link-ul de ieșire */
+        .logout-container {
+            text-align: right;
+            margin-bottom: 15px;
+        }
+        .logout-link {
+            color: #0066cc;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Meniul de navigare (Tab-uri) */
+        .nav-tabs {
+            border-bottom: 1px solid #b5b5b5;
+            padding-left: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 2px;
+        }
+        .tab {
+            padding: 6px 12px;
+            border: 1px solid #b5b5b5;
+            border-bottom: none;
+            background-color: #f9f9f9;
+            color: #0066cc;
+            text-decoration: none;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+        .tab.active {
+            background-color: #ffffff;
+            color: #333333;
+            border-bottom: 1px solid #ffffff;
+            margin-bottom: -1px;
+            position: relative;
+ z-index: 1;
+        }
+
+        /* Informații Semestru și Curs */
+        .info-header {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        .info-header:first-of-type {
+            margin-top: 0;
+        }
+        .info-header .semester {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .info-header .code {
+            margin-bottom: 15px;
+        }
+        .info-header .subject-title {
+            font-weight: bold;
+            border-bottom: 1px solid #cdcdcd;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #111111;
+        }
+
+        /* Structura listei de activități/teme */
+        .activity-section {
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+        
+        .section-type-row {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            background-color: #f2f2f2;
+            padding: 6px 8px;
+            border-radius: 3px;
+            margin-bottom: 5px;
+        }
+        .professor-name {
+            text-align: right;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        /* Rândurile cu lecții/teme */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+        }
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 8px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .activity-item:hover {
+            background-color: #fcfcfc;
+        }
+        .activity-text {
+            color: #000000;
+            padding-right: 20px;
+            text-align: left;
+        }
+        .activity-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            white-space: nowrap;
+            color: #333333;
+        }
+        .activity-date {
+            width: 110px;
+        }
+        .activity-status {
+            width: 30px;
+            text-align: center;
+            font-weight: bold;
+            color: #2b2b2b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="logout-container">
+        <span class="logout-link">Ieșire</span>
+    </div>
+
+    <div class="nav-tabs">
+        <a href="home.html" class="tab">Home</a>
+        <a href="frecventa.html" class="tab active">Evidenta frecventei(semestr. curent)</a>
+        <a href="evaluare.html" class="tab">Evaluare</a>
+    </div>
+
+    <div class="info-header">
+        <div class="semester">semestru 02</div>
+        <div class="code">I2501</div>
+        <div class="subject-title">Etica profesionala si scrierea academica</div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>curs</div>
+            <div class="professor-name">Marin Maria Petru</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Etica și morala: delimitări conceptuale, funcții și rolul în societatea contemporană</div>
+                <div class="activity-meta"><span class="activity-date">03.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Fundamentele eticii profesionale și principiile profesionalismului în domeniul IT</div>
+                <div class="activity-meta"><span class="activity-date">10.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Deontologia profesională în informatică și TIC: norme, coduri etice și responsabilități</div>
+                <div class="activity-meta"><span class="activity-date">17.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Responsabilitatea socială a specialistului IT în contextul transformării digitale</div>
+                <div class="activity-meta"><span class="activity-date">24.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Etica utilizării tehnologiilor informaționale: securitatea datelor, confidențialitatea și protecția informației</div>
+                <div class="activity-meta"><span class="activity-date">03.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Etica relațiilor profesionale în domeniul IT și managementul conflictelor profesionale</div>
+                <div class="activity-meta"><span class="activity-date">10.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Comunicarea profesională și comportamentul etic în mediul organizațional și digital</div>
+                <div class="activity-meta"><span class="activity-date">17.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Scrierea academică și științifică: concept, tipologii și particularități stilistice</div>
+                <div class="activity-meta"><span class="activity-date">24.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Principiile și normele scrierii academice: coerență, claritate, obiectivitate și argumentare științifică</div>
+                <div class="activity-meta"><span class="activity-date">31.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Structura lucrărilor academice și științifice în domeniul IT</div>
+                <div class="activity-meta"><span class="activity-date">07.04.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Metodologia elaborării lucrărilor scrise studențești și utilizarea surselor bibliografice</div>
+                <div class="activity-meta"><span class="activity-date">21.04.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Corespondența academică și profesională: reguli, stil și tehnici de autoprezentare</div>
+                <div class="activity-meta"><span class="activity-date">28.04.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Integritatea academică: norme etice, tipuri de abateri și strategii de prevenire a plagiatului</div>
+                <div class="activity-meta"><span class="activity-date">05.05.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Atestarea studenților nr2</div>
+                <div class="activity-meta"><span class="activity-date">12.05.2026 11:30</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Scrierea academică și științifică: diferențe și similitudini, structurarea textului conform modelului IMRaD și tipuri de texte științifice.</div>
+                <div class="activity-meta"><span class="activity-date">19.05.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>seminar</div>
+            <div class="professor-name">Marin Maria Petru</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Analiza comparativă a conceptelor de etică și morală prin studii de caz</div>
+                <div class="activity-meta"><span class="activity-date">04.02.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Aplicarea principiilor eticii profesionale în situații specifice domeniului IT</div>
+                <div class="activity-meta"><span class="activity-date">11.02.2026 09:45</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Interpretarea codurilor deontologice din domeniul informaticii și TIC</div>
+                <div class="activity-meta"><span class="activity-date">18.02.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Identificarea dilemelor etice în activitatea specialistului IT și argumentarea soluțiilor</div>
+                <div class="activity-meta"><span class="activity-date">25.02.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Analiza situațiilor de încălcare a securității informației și a confidențialității datelor</div>
+                <div class="activity-meta"><span class="activity-date">04.03.2026 09:45</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Simularea conflictelor profesionale și aplicarea strategiilor de soluționare etică</div>
+                <div class="activity-meta"><span class="activity-date">11.03.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Exersarea comunicării profesionale și a comportamentului etic în echipe IT</div>
+                <div class="activity-meta"><span class="activity-date">18.03.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Analiza hercurilor de texte academice și identificarea caracteristicilor stilului științific</div>
+                <div class="activity-meta"><span class="activity-date">25.03.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Exerciții de formulare a ideilor și argumentelor în scrierea academică</div>
+                <div class="activity-meta"><span class="activity-date">01.04.2026 09:45</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Elaborarea structurii unei lucrări academice în domeniul IT</div>
+                <div class="activity-meta"><span class="activity-date">08.04.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Aplicarea normelor de citare și referențiere a surselor bibliografice</div>
+                <div class="activity-meta"><span class="activity-date">22.04.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Redactarea mesajelor de corespondență academică și realizarea prezentării profesionale</div>
+                <div class="activity-meta"><span class="activity-date">29.04.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Identificarea și corectarea exemplelor de plagiat și alte abateri de la integritatea academică</div>
+                <div class="activity-meta"><span class="activity-date">06.05.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Prezerntarea portofoliilor</div>
+                <div class="activity-meta"><span class="activity-date">13.05.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Prezerntarea portofoliilor</div>
+                <div class="activity-meta"><span class="activity-date">20.05.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-header">
+        <div class="semester">semestru 02</div>
+        <div class="subject-title">JavaScript</div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>curs</div>
+            <div class="professor-name">Donu Alexandru</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Introducere in JavaScript</div>
+                <div class="activity-meta"><span class="activity-date">06.02.2026 13:15</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Variabile. Tipuri de date. Functii</div>
+                <div class="activity-meta"><span class="activity-date">13.02.2026 13:15</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Formulare. Obiectul Date.</div>
+                <div class="activity-meta"><span class="activity-date">06.03.2026 13:15</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Asigurarea persistentei datelor in localStorage</div>
+                <div class="activity-meta"><span class="activity-date">03.04.2026 13:15</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Async Js</div>
+                <div class="activity-meta"><span class="activity-date">08.05.2026 13:15</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Recapitulare</div>
+                <div class="activity-meta"><span class="activity-date">15.05.2026 13:15</span><span class="activity-status"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>laborator</div>
+            <div class="professor-name">Donu Alexandru</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Introducere in JavaScript</div>
+                <div class="activity-meta"><span class="activity-date">05.02.2026 13:15</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Variabile, tipuri de date, functii</div>
+                <div class="activity-meta"><span class="activity-date">12.02.2026 13:15</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Tablouri, obiecte, bucle</div>
+                <div class="activity-meta"><span class="activity-date">19.02.2026 13:15</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Document Object Model</div>
+                <div class="activity-meta"><span class="activity-date">26.02.2026 13:15</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Expresii regulate</div>
+                <div class="activity-meta"><span class="activity-date">05.03.2026 13:15</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">HTML Forms from JS perspective.</div>
+                <div class="activity-meta"><span class="activity-date">12.03.2026 13:15</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Recapitulare</div>
+                <div class="activity-meta"><span class="activity-date">26.03.2026 13:15</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Recursia</div>
+                <div class="activity-meta"><span class="activity-date">23.04.2026 13:15</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Async JS</div>
+                <div class="activity-meta"><span class="activity-date">30.04.2026 13:15</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Async JS. Continuare.</div>
+                <div class="activity-meta"><span class="activity-date">07.05.2026 13:15</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Atestare 2</div>
+                <div class="activity-meta"><span class="activity-date">14.05.2026 13:15</span><span class="activity-status">8</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-header">
+        <div class="semester">semestru 02</div>
+        <div class="subject-title">Matematica discreta</div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>curs</div>
+            <div class="professor-name">Cucu Ivan Vasilii</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Introducere. Funcțiile algebrei propoziționale.</div>
+                <div class="activity-meta"><span class="activity-date">02.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Forme normale conjunctive si disjunctive</div>
+                <div class="activity-meta"><span class="activity-date">09.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Noțiuni fundamentale din teoria grafurilor</div>
+                <div class="activity-meta"><span class="activity-date">11.02.2026 00:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Forme normale perfecte.</div>
+                <div class="activity-meta"><span class="activity-date">16.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Mulțimi stabile în graf</div>
+                <div class="activity-meta"><span class="activity-date">25.02.2026 00:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Teorema despre completitudinea funcțională.</div>
+                <div class="activity-meta"><span class="activity-date">09.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Conexitatea grafurilor</div>
+                <div class="activity-meta"><span class="activity-date">11.03.2026 00:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Teorema deducției în calculul propozițiilor.</div>
+                <div class="activity-meta"><span class="activity-date">23.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Arbori. Teorema de caracterizarea a arborilor</div>
+                <div class="activity-meta"><span class="activity-date">25.03.2026 00:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Colorarea vârfurilor și muchiilor grafului. Număr și indice cromatic al grafului</div>
+                <div class="activity-meta"><span class="activity-date">08.04.2026 00:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Grafuri planare. Formula lui Euler</div>
+                <div class="activity-meta"><span class="activity-date">22.04.2026 00:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Colorarea grafurilor planare</div>
+                <div class="activity-meta"><span class="activity-date">06.05.2026 00:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Grafuri euleriene. Grafuri hamiltoniene</div>
+                <div class="activity-meta"><span class="activity-date">20.05.2026 00:00</span><span class="activity-status"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>seminar</div>
+            <div class="professor-name">Cuciuc Natalia</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Algebra propozițiilor. Tabelul de valori.</div>
+                <div class="activity-meta"><span class="activity-date">12.02.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Forme normale conjunctivă și disjunctivă.</div>
+                <div class="activity-meta"><span class="activity-date">26.02.2026 09:45</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Atestarea nr.1. Variabile fictive.</div>
+                <div class="activity-meta"><span class="activity-date">12.03.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Polinomul Jegalchin.</div>
+                <div class="activity-meta"><span class="activity-date">26.03.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Criteriul de completitudine funcțională.</div>
+                <div class="activity-meta"><span class="activity-date">09.04.2026 09:45</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Calculul propozițional. Axiome.</div>
+                <div class="activity-meta"><span class="activity-date">23.04.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Teorema deducției în calculul propozițional.</div>
+                <div class="activity-meta"><span class="activity-date">07.05.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Activitate fără titlu specificat</div>
+                <div class="activity-meta"><span class="activity-date">21.05.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-header">
+        <div class="semester">semestru 02</div>
+        <div class="subject-title">Programarea orientata pe obiect</div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>curs</div>
+            <div class="professor-name">Arnaut Vsevolod Simion</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Caracterizarea programării orientate pe obiecte.</div>
+                <div class="activity-meta"><span class="activity-date">05.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Clase și obiecte.</div>
+                <div class="activity-meta"><span class="activity-date">12.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Constructori și destructori.</div>
+                <div class="activity-meta"><span class="activity-date">19.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Moștenirea claselor: moștenire singulară</div>
+                <div class="activity-meta"><span class="activity-date">26.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Moștenirea claselor: moștenire multiplă</div>
+                <div class="activity-meta"><span class="activity-date">05.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Moștenirea pe mai multe niveluri.</div>
+                <div class="activity-meta"><span class="activity-date">12.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Prelucrarea tablourilor de obiecte.</div>
+                <div class="activity-meta"><span class="activity-date">19.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Structuri, uniuni și enumerări</div>
+                <div class="activity-meta"><span class="activity-date">26.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>laborator</div>
+            <div class="professor-name">Arnaut Vsevolod Simion</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Clase și obiecte.</div>
+                <div class="activity-meta"><span class="activity-date">02.02.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Descriere clasă.</div>
+                <div class="activity-meta"><span class="activity-date">09.02.2026 09:45</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Tablouri de obiecte.</div>
+                <div class="activity-meta"><span class="activity-date">16.02.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Moștenirea claselor: moștenire singulară</div>
+                <div class="activity-meta"><span class="activity-date">23.02.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Modificatori de moștenire</div>
+                <div class="activity-meta"><span class="activity-date">02.03.2026 09:45</span><span class="activity-status">6</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Nivelul de acces la membrii din clasa de bază</div>
+                <div class="activity-meta"><span class="activity-date">09.03.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Supraîncărcarea operatorilor</div>
+                <div class="activity-meta"><span class="activity-date">16.03.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Supraîncărcarea operatorilor prin funcții membre</div>
+                <div class="activity-meta"><span class="activity-date">23.03.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-header">
+        <div class="semester">semestru 02</div>
+        <div class="subject-title">PYTHON pentru aplicatii</div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>curs</div>
+            <div class="professor-name">Plesca Natalia Mihail</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Introducere în limbajul Python. Editoare de cod. Paradigme. Tipuri de date. Variabile în Py</div>
+                <div class="activity-meta"><span class="activity-date">06.02.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Operatori. Tipurile de date: int, str, float, boolean, complex, list, touple, dict, set - exemple și sintaxă</div>
+                <div class="activity-meta"><span class="activity-date">13.02.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Colecțiile de date: list, touple, dict, set - exemple și sintaxă. Metode și funcții de lucru cu colecțiile de date în Py</div>
+                <div class="activity-meta"><span class="activity-date">20.02.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Instrucțiuni condiționale în Py</div>
+                <div class="activity-meta"><span class="activity-date">27.02.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Instrucțiuni ciclice în Py. Expresii regulate. Exemple de aplicare a ER</div>
+                <div class="activity-meta"><span class="activity-date">06.03.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Interacțiunea cu fișierele ce conțin date, în Python</div>
+                <div class="activity-meta"><span class="activity-date">13.03.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Test 1</div>
+                <div class="activity-meta"><span class="activity-date">20.03.2026 09:45</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Programarea OO în Py. Clase. Obiecte. Principii</div>
+                <div class="activity-meta"><span class="activity-date">27.03.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Utilizarea tehnologiilor Py în companiile din RM și de peste hotare (lecție organizată cu un programator Py din industrie)</div>
+                <div class="activity-meta"><span class="activity-date">03.04.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Module. Pachete. Modulele Date, Time, DateTime, Tkinter din Python</div>
+                <div class="activity-meta"><span class="activity-date">10.04.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Librăria Pandas. Exemplu aplicativ utilizare Pandas în analiza datelor</div>
+                <div class="activity-meta"><span class="activity-date">24.04.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Librăria Py - Google Text-to-Speech (TTS). Exemplu aplicativ</div>
+                <div class="activity-meta"><span class="activity-date">08.05.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Framework-uri Python pentru dezvoltarea aplicațiilor web. Exemplu aplicativ - dezvoltare aplicație web în Flask</div>
+                <div class="activity-meta"><span class="activity-date">15.05.2026 09:45</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Test 2. 1 mai - a fost liber (15)</div>
+                <div class="activity-meta"><span class="activity-date">22.05.2026 09:45</span><span class="activity-status">7</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>laborator</div>
+            <div class="professor-name">Mândru Eugen</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Introducerea în Python</div>
+                <div class="activity-meta"><span class="activity-date">04.02.2026 08:00</span><span class="activity-status">10</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Tipul de date numeric, logic și șir textual</div>
+                <div class="activity-meta"><span class="activity-date">10.02.2026 08:00</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Laboratorul nr.1 (Sarcina 1-2)</div>
+                <div class="activity-meta"><span class="activity-date">11.02.2026 08:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Colecțiile de date în python.</div>
+                <div class="activity-meta"><span class="activity-date">18.02.2026 08:00</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Laboratorul nr.1 (Sarcina 3-4)</div>
+                <div class="activity-meta"><span class="activity-date">24.02.2026 08:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Metode și funcții, care pot fi aplicate în lucrul cu colecțiile</div>
+                <div class="activity-meta"><span class="activity-date">25.02.2026 08:00</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Laboratorul 2</div>
+                <div class="activity-meta"><span class="activity-date">04.03.2026 08:00</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Instrucțiunile ciclice în python.</div>
+                <div class="activity-meta"><span class="activity-date">10.03.2026 08:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Expresiile regulate în Python, Try…Except…Finally</div>
+                <div class="activity-meta"><span class="activity-date">11.03.2026 08:00</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Laboratorul 3</div>
+                <div class="activity-meta"><span class="activity-date">18.03.2026 08:00</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Fișiere și regex</div>
+                <div class="activity-meta"><span class="activity-date">25.03.2026 08:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Clase și obiecte</div>
+                <div class="activity-meta"><span class="activity-date">08.04.2026 08:00</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Moștenirea și decoratorii</div>
+                <div class="activity-meta"><span class="activity-date">21.04.2026 08:00</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Laboratorul 5</div>
+                <div class="activity-meta"><span class="activity-date">22.04.2026 08:00</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Pandas</div>
+                <div class="activity-meta"><span class="activity-date">29.04.2026 08:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Laboratorul 6</div>
+                <div class="activity-meta"><span class="activity-date">05.05.2026 08:00</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Laboratorul 7</div>
+                <div class="activity-meta"><span class="activity-date">06.05.2026 08:00</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Laboratorul 8 (Text to speech)</div>
+                <div class="activity-meta"><span class="activity-date">13.05.2026 08:00</span><span class="activity-status">10</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Laboratorul 9 (Flask)</div>
+                <div class="activity-meta"><span class="activity-date">19.05.2026 08:00</span><span class="activity-status">7</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-header">
+        <div class="semester">semestru 02</div>
+        <div class="subject-title">Retele de calculatoare</div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>curs</div>
+            <div class="professor-name">Capcelea Titu Grigore</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Introducere în comunicațiile de date: definirea conceptelor de bază și a importanței rețelelor de calculatoare.</div>
+                <div class="activity-meta"><span class="activity-date">06.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Arhitectura pe nivele a protocoalelor de rețea. Suita de protocoale TCP/IP. Modelul OSI.</div>
+                <div class="activity-meta"><span class="activity-date">13.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Date și semnale: tipuri de semnale (analogice și digitale) și convertirea acestora.</div>
+                <div class="activity-meta"><span class="activity-date">20.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Medii de transmisie: medii ghidate – cablu cu perechi torsadate, cablu coaxial, cablu cu fibră optică.</div>
+                <div class="activity-meta"><span class="activity-date">27.02.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Noduri și link-uri. Serviciile de la nivelul legătură de date. Mecanismul de adresare la nivelul legătură de date.</div>
+                <div class="activity-meta"><span class="activity-date">06.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Protocolul Ethernet pentru rețelele locale cu fir. Standardul 802.3 și implementările sale.</div>
+                <div class="activity-meta"><span class="activity-date">13.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Rețele locale virtuale VLAN. Protocolul STP pentru gestionarea ciclurilor în rețea.</div>
+                <div class="activity-meta"><span class="activity-date">20.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Serviciile prestate la nivelul rețea al stivei de protocoale TCP/IP. Gestionarea datagramelor IP. Adrese IPv4.</div>
+                <div class="activity-meta"><span class="activity-date">27.03.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Protocoale de nivel rețea: Internet (IP), ICMPv4 și IGMPv4. Structura datagramei IP.</div>
+                <div class="activity-meta"><span class="activity-date">03.04.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Protocolul de configurare dinamică a host-urilor DHCP.</div>
+                <div class="activity-meta"><span class="activity-date">10.04.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Rutarea unicast: ideea generală a rutării de cost minim. Rutarea statică. Algoritmi de rutare dinamică.</div>
+                <div class="activity-meta"><span class="activity-date">24.04.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Protocoalele de rutare dinamică unicast RIP, EIGRP și OSPF în interiorul sistemelor autonome.</div>
+                <div class="activity-meta"><span class="activity-date">08.05.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Serviciile prestate de nivelul transport. Protocoale fără conexiune și orientate pe conexiune.</div>
+                <div class="activity-meta"><span class="activity-date">15.05.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Serviciile prestate. Analiza protocoalelor client-server standard: http, ftp, e-mail, Telnet și SSH.</div>
+                <div class="activity-meta"><span class="activity-date">22.05.2026 11:30</span><span class="activity-status"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="activity-section">
+        <div class="section-type-row">
+            <div>laborator</div>
+            <div class="professor-name">Capcelea Maria Andrei</div>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-text">Activitate laborator 1</div>
+                <div class="activity-meta"><span class="activity-date">04.02.2026 00:00</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Activitate laborator 2</div>
+                <div class="activity-meta"><span class="activity-date">11.02.2026 11:30</span><span class="activity-status">8</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Activitate laborator 3</div>
+                <div class="activity-meta"><span class="activity-date">25.02.2026 00:00</span><span class="activity-status"></span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Activitate laborator 4</div>
+                <div class="activity-meta"><span class="activity-date">11.03.2026 00:00</span><span class="activity-status">7</span></div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-text">Activitate laborator 5</div>
+                <div class="activity-meta"><span class="activity-date">18.03.2026 00:00</span><span class="activity-status">8</span></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
